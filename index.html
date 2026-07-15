@@ -46,6 +46,14 @@
       transition: color 0.25s ease;
     }
     .nav-link:hover { color: #C4714A; }
+    #lang-toggle {
+      border: none; background: none; cursor: pointer;
+      font-family: 'Nunito', sans-serif; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase; color: #3B2820;
+      padding: 0 0 0 2.0rem; border-left: 2px solid #c5a67e;
+      transition: color 0.25s ease;
+    }
+    #lang-toggle:hover { color: #C4714A; }
 
     /* Buttons */
     .btn {
@@ -142,7 +150,7 @@
       background: #3F5461;
       border-radius: 50%;
       transform: translate(-50%, -50%) scale(1);
-      transition: transform 0.1s ease-out;
+      transition: none;
       pointer-events: none;
     }
     #pupil-left  { transform: translate(-50%, -50%) scale(1) rotate(-12.7deg); }
@@ -235,9 +243,10 @@
       <span style="font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:700;color:#3B2820;letter-spacing:-0.3px;line-height:1;">Meezer Tech</span>
     </a>
     <nav style="display:flex;gap:clamp(1.25rem,3vw,2.75rem);align-items:center;">
-      <a href="#services" class="nav-link">Services</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#services" class="nav-link" data-i18n="nav.services">Services</a>
+      <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+      <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+      <button id="lang-toggle" data-i18n="toggle.label">Español</button>
     </nav>
   </header>
 
@@ -245,19 +254,19 @@
     <canvas id="meta-balls-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:-1;opacity:0.5;"></canvas>
     <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem;">
       <span style="display:block;width:clamp(28px,6vw,54px);height:1px;background-color:#839AA9;"></span>
-      <span style="font-family:'Nunito',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:4px;color:#7C6A5D;">SOFTWARE&nbsp;&nbsp;·&nbsp;&nbsp;DATA&nbsp;&nbsp;·&nbsp;&nbsp;CLOUD</span>
+      <span data-i18n="hero.eyebrow" style="font-family:'Nunito',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:4px;color:#7C6A5D;">SOFTWARE&nbsp;&nbsp;·&nbsp;&nbsp;DATA&nbsp;&nbsp;·&nbsp;&nbsp;CLOUD</span>
       <span style="display:block;width:clamp(28px,6vw,54px);height:1px;background-color:#839AA9;"></span>
     </div>
     <img src="Mezzertech_Logo_PNG.png" alt="MeezerTech" style="height:clamp(96px,14vw,150px);width:auto;max-width:70vw;margin-bottom:0.5rem;display:block;">
     <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(52px,11vw,124px);font-weight:600;color:#3B2820;letter-spacing:-2px;line-height:0.95;margin:0.5rem 0 1.5rem;">Meezer Tech</h1>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,30px);font-style:italic;font-weight:500;color:#C4714A;margin-bottom:1.75rem;">Elegant solutions, thoughtfully crafted.</p>
-    <p style="max-width:560px;font-size:1.05rem;color:#5C4033;line-height:1.85;margin:0 auto 2.75rem;">We build apps that solve real problems. From HR dashboards to employee management tools, we turn your data and requirements into software that works for your team and your clients.</p>
+    <p data-i18n="hero.tagline" style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,30px);font-style:italic;font-weight:500;color:#C4714A;margin-bottom:1.75rem;">Elegant solutions, thoughtfully crafted.</p>
+    <p data-i18n="hero.intro" style="max-width:560px;font-size:1.05rem;color:#5C4033;line-height:1.85;margin:0 auto 2.75rem;">We build apps that solve real problems. From HR dashboards to employee management tools, we turn your data and requirements into software that works for your team and your clients.</p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <a href="#contact" class="btn btn-primary">Start a Conversation</a>
-      <a href="#services" class="btn btn-outline">Our Services</a>
+      <a href="#contact" class="btn btn-primary" data-i18n="hero.cta.primary">Start a Conversation</a>
+      <a href="#services" class="btn btn-outline" data-i18n="hero.cta.secondary">Our Services</a>
     </div>
     <div style="position:absolute;left:50%;bottom:2rem;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;color:#839AA9;font-size:0.62rem;font-weight:700;letter-spacing:2.5px;">
-      <span>SCROLL</span>
+      <span data-i18n="hero.scroll">SCROLL</span>
       <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;animation:mtBounce 2.2s ease infinite;">
         <path d="M12 5v14M19 12l-7 7-7-7"></path>
       </svg>
@@ -267,24 +276,24 @@
   <div id="stats-bar" style="background:#EDE4D8;padding:clamp(3rem,6vw,4.5rem) 2rem;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:clamp(1.5rem,4vw,3rem);border-top:1px solid #E2D6C7;border-bottom:1px solid #E2D6C7;">
     <div style="flex:0 1 240px;text-align:center;padding:0 1rem;">
       <span id="stat-clients" style="display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,64px);font-weight:600;color:#3B2820;line-height:1;margin-bottom:0.6rem;">15+</span>
-      <span style="display:block;font-family:'Nunito',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#7C6A5D;">Enterprise Clients</span>
+      <span data-i18n="stats.clients" style="display:block;font-family:'Nunito',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#7C6A5D;">Enterprise Clients</span>
     </div>
     <div style="width:1px;height:64px;background:#4A7FA5;opacity:0.35;flex-shrink:0;"></div>
     <div style="flex:0 1 240px;text-align:center;padding:0 1rem;">
       <span style="display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,64px);font-weight:600;color:#3B2820;line-height:1;margin-bottom:0.6rem;">AWS</span>
-      <span style="display:block;font-family:'Nunito',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#7C6A5D;">Powered</span>
+      <span data-i18n="stats.aws" style="display:block;font-family:'Nunito',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#7C6A5D;">Powered</span>
     </div>
     <div style="width:1px;height:64px;opacity:0.35;flex-shrink:0;background-color:#839AA9;"></div>
     <div style="flex:0 1 240px;text-align:center;padding:0 1rem;">
       <span id="stat-built" style="display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,64px);font-weight:600;color:#3B2820;line-height:1;margin-bottom:0.6rem;">100%</span>
-      <span style="display:block;font-family:'Nunito',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#7C6A5D;">Custom Built</span>
+      <span data-i18n="stats.custom" style="display:block;font-family:'Nunito',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#7C6A5D;">Custom Built</span>
     </div>
   </div>
 
   <section id="services" style="padding:clamp(5.5rem,11vw,9rem) 0;background:#FAF6F1;scroll-margin-top:80px;">
     <div style="max-width:1180px;margin:0 auto;padding:0 clamp(1.5rem,5vw,3rem);">
       <div style="margin-bottom:clamp(3rem,6vw,4.5rem);">
-        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,7vw,4.4rem);font-weight:500;color:#4A7FA5;line-height:1;letter-spacing:-1.5px;">What We Do</h2>
+        <h2 data-i18n="services.heading" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,7vw,4.4rem);font-weight:500;color:#4A7FA5;line-height:1;letter-spacing:-1.5px;">What We Do</h2>
         <span id="services-underline" class="services-underline"></span>
       </div>
       <ol class="process-list">
@@ -292,32 +301,32 @@
         <li class="process-item">
           <span class="process-num">01</span>
           <div class="process-body">
-            <h3 class="process-title">Software Development</h3>
-            <p class="process-desc">We build client-facing apps and internal tools for enterprises and growing businesses. Recent work includes HR platforms that generate KPI dashboards and handle leave approvals. Clean code, built to scale.</p>
+            <h3 class="process-title" data-i18n="services.1.title">Software Development</h3>
+            <p class="process-desc" data-i18n="services.1.body">We build client-facing apps and internal tools for enterprises and growing businesses. Recent work includes HR platforms that generate KPI dashboards and handle leave approvals. Clean code, built to scale.</p>
           </div>
         </li>
 
         <li class="process-item">
           <span class="process-num">02</span>
           <div class="process-body">
-            <h3 class="process-title">Data Engineering</h3>
-            <p class="process-desc">Your data is scattered across files and systems. We sanitize it, key it to unique user IDs, and structure it so it actually works. We handle the cleanup so your team gets answers instead of spreadsheets.</p>
+            <h3 class="process-title" data-i18n="services.2.title">Data Engineering</h3>
+            <p class="process-desc" data-i18n="services.2.body">Your data is scattered across files and systems. We sanitize it, key it to unique user IDs, and structure it so it actually works. We handle the cleanup so your team gets answers instead of spreadsheets.</p>
           </div>
         </li>
 
         <li class="process-item">
           <span class="process-num">03</span>
           <div class="process-body">
-            <h3 class="process-title">Cloud on AWS</h3>
-            <p class="process-desc">We run our apps on AWS. Infrastructure that stays up, scales when needed, and does not get in the way. We handle the setup and keep it running.</p>
+            <h3 class="process-title" data-i18n="services.3.title">Cloud on AWS</h3>
+            <p class="process-desc" data-i18n="services.3.body">We run our apps on AWS. Infrastructure that stays up, scales when needed, and does not get in the way. We handle the setup and keep it running.</p>
           </div>
         </li>
 
         <li class="process-item">
           <span class="process-num">04</span>
           <div class="process-body">
-            <h3 class="process-title">Custom Quoting</h3>
-            <p class="process-desc">Every project is different. Data gathering, migrations, and greenfield builds are all scoped and quoted per project. Tell us what you are working with and we will tell you what it takes.</p>
+            <h3 class="process-title" data-i18n="services.4.title">Custom Quoting</h3>
+            <p class="process-desc" data-i18n="services.4.body">Every project is different. Data gathering, migrations, and greenfield builds are all scoped and quoted per project. Tell us what you are working with and we will tell you what it takes.</p>
           </div>
         </li>
 
@@ -330,10 +339,10 @@
     <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(2.5rem,6vw,5rem);align-items:center;position:relative;z-index:1;">
       <div>
         <div style="width:48px;height:2px;margin-bottom:1.75rem;background-color:#C4714A;"></div>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.5vw,52px);font-weight:500;color:#3B2820;margin-bottom:1.75rem;line-height:1.05;letter-spacing:-1px;">Why Meezer?</h2>
-        <p style="color:#5C4033;font-size:1.06rem;margin-bottom:1.25rem;line-height:1.85;">Named after the affectionate nickname for Siamese cats, Meezer Tech embodies the qualities we bring to every project: <b>intelligence, elegance, and a touch of personality.</b></p>
-        <p style="color:#5C4033;font-size:1.06rem;margin-bottom:1.25rem;line-height:1.85;">We believe technology should feel approachable. Behind every system we build is a commitment to clarity, communication, and genuine partnership with our clients.</p>
-        <p style="color:#5C4033;font-size:1.06rem;line-height:1.85;">Like our feline namesakes, we are curious problem-solvers who will not stop until we find the most elegant solution.</p>
+        <h2 data-i18n="about.heading" style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5.5vw,52px);font-weight:500;color:#3B2820;margin-bottom:1.75rem;line-height:1.05;letter-spacing:-1px;">Why Meezer?</h2>
+        <p data-i18n="about.p1" style="color:#5C4033;font-size:1.06rem;margin-bottom:1.25rem;line-height:1.85;">Named after the affectionate nickname for Siamese cats, Meezer Tech embodies the qualities we bring to every project: <b>intelligence, elegance, and a touch of personality.</b></p>
+        <p data-i18n="about.p2" style="color:#5C4033;font-size:1.06rem;margin-bottom:1.25rem;line-height:1.85;">We believe technology should feel approachable. Behind every system we build is a commitment to clarity, communication, and genuine partnership with our clients.</p>
+        <p data-i18n="about.p3" style="color:#5C4033;font-size:1.06rem;line-height:1.85;">Like our feline namesakes, we are curious problem-solvers who will not stop until we find the most elegant solution.</p>
       </div>
       <div style="display:flex;justify-content:center;align-items:center;">
         <div id="cat-follow" style="position:relative;display:inline-block;line-height:0;">
@@ -353,9 +362,9 @@
     <canvas id="magic-rings-canvas" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;"></canvas>
     <div style="position:relative;z-index:1;">
       <div style="width:40px;height:2px;margin:0 auto 1.75rem;background-color:#C4714A;"></div>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5.5vw,3.4rem);font-weight:500;line-height:1.12;margin-bottom:1.25rem;letter-spacing:-0.5px;">Let us Build Something Together.</h2>
-      <p style="color:rgba(250,246,241,0.65);font-size:1.1rem;max-width:540px;margin:0 auto 2.5rem;line-height:1.8;">Have a problem that needs an app, a data mess that needs structure, or infrastructure that needs to just work. Get in touch.</p>
-      <a href="mailto:hello@meezertech.com" class="btn btn-contact">Get in Touch</a>
+      <h2 data-i18n="contact.heading" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5.5vw,3.4rem);font-weight:500;line-height:1.12;margin-bottom:1.25rem;letter-spacing:-0.5px;">Let us Build Something Together.</h2>
+      <p data-i18n="contact.body" style="color:rgba(250,246,241,0.65);font-size:1.1rem;max-width:540px;margin:0 auto 2.5rem;line-height:1.8;">Have a problem that needs an app, a data mess that needs structure, or infrastructure that needs to just work? Get in touch.</p>
+      <a href="mailto:hello@meezertech.com" class="btn btn-contact" data-i18n="contact.cta">Get in Touch</a>
     </div>
   </section>
 
@@ -364,12 +373,12 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2.5rem;padding:clamp(3rem,6vw,4rem) 0 3rem;border-bottom:1px solid rgba(255,255,255,0.06);">
         <div>
           <img src="Mezzertech_Logo_PNG.png" alt="MeezerTech" style="height:62px;width:auto;display:block;margin-bottom:1rem;">
-          <p style="font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(250,246,241,0.45);">Software. Data. Cloud.</p>
+          <p data-i18n="footer.tagline" style="font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(250,246,241,0.45);">Software. Data. Cloud.</p>
         </div>
         <div style="display:flex;flex-direction:column;gap:0.75rem;">
-          <a href="#services" class="footer-link">Services</a>
-          <a href="#about" class="footer-link">About</a>
-          <a href="#contact" class="footer-link">Contact</a>
+          <a href="#services" class="footer-link" data-i18n="footer.services">Services</a>
+          <a href="#about" class="footer-link" data-i18n="footer.about">About</a>
+          <a href="#contact" class="footer-link" data-i18n="footer.contact">Contact</a>
         </div>
         <div style="display:flex;flex-direction:column;gap:0.75rem;">
           <a href="mailto:hello@meezertech.com" class="footer-link email">hello@meezertech.com</a>
@@ -407,16 +416,27 @@
         }
         var bar = document.getElementById('stats-bar');
         if (bar && 'IntersectionObserver' in window) {
-          var io = new IntersectionObserver(function (entries) {
-            if (entries[0].isIntersecting) {
-              stats.forEach(function (s) {
+          var statsIn = false;
+          var ioIn = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting && !statsIn) {
+              statsIn = true;
+              stats.forEach(function(s) {
                 var el = document.getElementById(s.id);
                 if (el) countUp(el, s.target, s.suffix, 1600);
               });
-              io.disconnect();
             }
           }, { threshold: 0.3 });
-          io.observe(bar);
+          var ioOut = new IntersectionObserver(function(entries) {
+            if (!entries[0].isIntersecting && statsIn) {
+              statsIn = false;
+              stats.forEach(function(s) {
+                var el = document.getElementById(s.id);
+                if (el) el.textContent = '0' + s.suffix;
+              });
+            }
+          }, { threshold: 0 });
+          ioIn.observe(bar);
+          ioOut.observe(bar);
         }
       }
 
@@ -429,31 +449,51 @@
         processItems.forEach(function(item) { item.classList.add('visible'); });
         if (servicesUnderline) servicesUnderline.classList.add('drawn');
       } else {
-        if (servicesUnderline && 'IntersectionObserver' in window) {
-          var ulObs = new IntersectionObserver(function(entries) {
-            if (entries[0].isIntersecting) { servicesUnderline.classList.add('drawn'); ulObs.disconnect(); }
-          }, { threshold: 0.5 });
-          ulObs.observe(servicesUnderline);
+        function attachProcessObservers() {
+          if (servicesUnderline && 'IntersectionObserver' in window) {
+            var ulObs = new IntersectionObserver(function(entries) {
+              if (entries[0].isIntersecting) { servicesUnderline.classList.add('drawn'); ulObs.disconnect(); }
+            }, { threshold: 0.5 });
+            ulObs.observe(servicesUnderline);
+          }
+          if (processItems.length && 'IntersectionObserver' in window) {
+            processItems.forEach(function(item, i) {
+              var obs = new IntersectionObserver(function(entries) {
+                if (entries[0].isIntersecting) {
+                  obs.unobserve(item);
+                  setTimeout(function() {
+                    item.classList.add('visible');
+                    processNums.forEach(function(num, j) {
+                      num.classList.toggle('active', j === i);
+                    });
+                  }, i * 130);
+                }
+              }, { threshold: 0.2 });
+              obs.observe(item);
+            });
+          }
         }
-        if (processItems.length && 'IntersectionObserver' in window) {
-          processItems.forEach(function(item, i) {
-            var obs = new IntersectionObserver(function(entries) {
-              if (entries[0].isIntersecting) {
-                obs.unobserve(item);
-                setTimeout(function() {
-                  item.classList.add('visible');
-                  processNums.forEach(function(num, j) {
-                    num.classList.toggle('active', j === i);
-                  });
-                }, i * 130);
-              }
-            }, { threshold: 0.2 });
-            obs.observe(item);
-          });
+        var servicesSection = document.getElementById('services');
+        if (servicesSection && 'IntersectionObserver' in window) {
+          var svcIn = false;
+          var svcObs = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting && !svcIn) {
+              svcIn = true;
+              attachProcessObservers();
+            } else if (!entries[0].isIntersecting && svcIn) {
+              svcIn = false;
+              processItems.forEach(function(item) { item.classList.remove('visible'); });
+              processNums.forEach(function(num) { num.classList.remove('active'); });
+              if (servicesUnderline) servicesUnderline.classList.remove('drawn');
+            }
+          }, { threshold: 0 });
+          svcObs.observe(servicesSection);
+        } else {
+          attachProcessObservers();
         }
       }
 
-      // Cat eye follow — socket center read fresh each mousemove; angle-based cap keeps pupil inside
+      // Cat eye follow — position updated each rAF frame (instant), scale eased in JS (~175ms)
       if (!reduce) {
         var cat = document.getElementById('cat-follow');
         var sockL = document.getElementById('eye-socket-l');
@@ -463,9 +503,10 @@
 
         if (cat && sockL && sockR && pupL && pupR) {
           var ACTIVE = 900;
+          var SPEED_THRESH = 0.01; // px/ms — dilation begins only above this
           var speedSmoothed = 0, prevMX = 0, prevMY = 0, prevMT = 0;
           var stopTimer = null, curActive = false, curCX = 0, curCY = 0;
-          var lastRL, lastRR;
+          var targetScale = 1, currentScale = 1;
 
           function applyPupil(p, sockRect, active, cx, cy, scale, rot) {
             var ox = 0, oy = 0;
@@ -484,10 +525,6 @@
           }
 
           document.addEventListener('mousemove', function(e) {
-            var rL = sockL.getBoundingClientRect();
-            var rR = sockR.getBoundingClientRect();
-            lastRL = rL; lastRR = rR;
-
             var t = performance.now();
             if (prevMT > 0) {
               var dt = Math.max(t - prevMT, 1);
@@ -496,27 +533,33 @@
             }
             prevMX = e.clientX; prevMY = e.clientY; prevMT = t;
 
-            var scale = 1 + Math.min(speedSmoothed * 5, 0.4);
+            // Only dilate above threshold; max scale 1.6
+            var excess = Math.max(0, speedSmoothed - SPEED_THRESH);
+            targetScale = 1 + Math.min(excess * 8, 0.8);
 
             clearTimeout(stopTimer);
             stopTimer = setTimeout(function() {
               speedSmoothed = 0;
-              if (lastRL && lastRR) {
-                applyPupil(pupL, lastRL, curActive, curCX, curCY, 1, -12.7);
-                applyPupil(pupR, lastRR, curActive, curCX, curCY, 1,  12.7);
-              }
+              targetScale = 1;
             }, 350);
 
             var catR = cat.getBoundingClientRect();
             var bx = catR.left + catR.width / 2;
             var by = catR.top + catR.height / 2;
-            var d = Math.sqrt(Math.pow(e.clientX - bx, 2) + Math.pow(e.clientY - by, 2));
-            curActive = d <= ACTIVE;
+            curActive = Math.sqrt(Math.pow(e.clientX - bx, 2) + Math.pow(e.clientY - by, 2)) <= ACTIVE;
             curCX = e.clientX; curCY = e.clientY;
-
-            applyPupil(pupL, rL, curActive, curCX, curCY, scale, -12.7);
-            applyPupil(pupR, rR, curActive, curCX, curCY, scale,  12.7);
           });
+
+          // rAF drives all rendering: position reads latest state (effectively instant),
+          // scale lerps toward target at ~25% per frame ≈ 175ms to settle
+          (function rafPupil() {
+            requestAnimationFrame(rafPupil);
+            currentScale += (targetScale - currentScale) * 0.25;
+            var rL = sockL.getBoundingClientRect();
+            var rR = sockR.getBoundingClientRect();
+            applyPupil(pupL, rL, curActive, curCX, curCY, currentScale, -12.7);
+            applyPupil(pupR, rR, curActive, curCX, curCY, currentScale,  12.7);
+          })();
         }
       }
 
@@ -864,6 +907,107 @@
         requestAnimationFrame(mbDraw);
       })();
 
+    })();
+
+    // Language toggle — data-i18n attribute approach, localStorage persistence
+    (function() {
+      var N = ' '; // non-breaking space
+      var LANGS = {
+        en: {
+          'nav.services':       'Services',
+          'nav.about':          'About',
+          'nav.contact':        'Contact',
+          'hero.eyebrow':       'SOFTWARE' + N + N + '·' + N + N + 'DATA' + N + N + '·' + N + N + 'CLOUD',
+          'hero.tagline':       'Elegant solutions, thoughtfully crafted.',
+          'hero.intro':         'We build apps that solve real problems. From HR dashboards to employee management tools, we turn your data and requirements into software that works for your team and your clients.',
+          'hero.cta.primary':   'Start a Conversation',
+          'hero.cta.secondary': 'Our Services',
+          'hero.scroll':        'SCROLL',
+          'stats.clients':      'Enterprise Clients',
+          'stats.aws':          'Powered',
+          'stats.custom':       'Custom Built',
+          'services.heading':   'What We Do',
+          'services.1.title':   'Software Development',
+          'services.1.body':    'We build client-facing apps and internal tools for enterprises and growing businesses. Recent work includes HR platforms that generate KPI dashboards and handle leave approvals. Clean code, built to scale.',
+          'services.2.title':   'Data Engineering',
+          'services.2.body':    'Your data is scattered across files and systems. We sanitize it, key it to unique user IDs, and structure it so it actually works. We handle the cleanup so your team gets answers instead of spreadsheets.',
+          'services.3.title':   'Cloud on AWS',
+          'services.3.body':    'We run our apps on AWS. Infrastructure that stays up, scales when needed, and does not get in the way. We handle the setup and keep it running.',
+          'services.4.title':   'Custom Quoting',
+          'services.4.body':    'Every project is different. Data gathering, migrations, and greenfield builds are all scoped and quoted per project. Tell us what you are working with and we will tell you what it takes.',
+          'about.heading':      'Why Meezer?',
+          'about.p1':           'Named after the affectionate nickname for Siamese cats, Meezer Tech embodies the qualities we bring to every project: <b>intelligence, elegance, and a touch of personality.</b>',
+          'about.p2':           'We believe technology should feel approachable. Behind every system we build is a commitment to clarity, communication, and genuine partnership with our clients.',
+          'about.p3':           'Like our feline namesakes, we are curious problem-solvers who will not stop until we find the most elegant solution.',
+          'contact.heading':    'Let us Build Something Together.',
+          'contact.body':       'Have a problem that needs an app, a data mess that needs structure, or infrastructure that needs to just work? Get in touch.',
+          'contact.cta':        'Get in Touch',
+          'footer.tagline':     'Software. Data. Cloud.',
+          'footer.services':    'Services',
+          'footer.about':       'About',
+          'footer.contact':     'Contact',
+          'toggle.label':       'Español',
+          'page.title':         'MeezerTech — Elegant solutions, thoughtfully crafted.'
+        },
+        es: {
+          'nav.services':       'Servicios',
+          'nav.about':          'Nosotros',
+          'nav.contact':        'Contacto',
+          'hero.eyebrow':       'SOFTWARE' + N + N + '·' + N + N + 'DATOS' + N + N + '·' + N + N + 'NUBE',
+          'hero.tagline':       'Soluciones elegantes, diseñadas con detalle.',
+          'hero.intro':         'Creamos aplicaciones que resuelven problemas reales: Desde paneles de recursos humanos hasta herramientas de gestión de personal. Convertimos tus datos y necesidades en software operativo. Funcional para tu equipo y tus clientes.',
+          'hero.cta.primary':   'Iniciar una conversación',
+          'hero.cta.secondary': 'Nuestros servicios',
+          'hero.scroll':        'SCROLL',
+          'stats.clients':      'Clientes empresariales',
+          'stats.aws':          'Powered',
+          'stats.custom':       'Personalizado',
+          'services.heading':   'Lo que hacemos',
+          'services.1.title':   'Desarrollo de software',
+          'services.1.body':    'Creamos aplicaciones y herramientas internas para empresas y negocios en crecimiento. Trabajos recientes incluyen plataformas de recursos humanos que generan paneles de KPI y aprueban permisos. Código limpio, hecho para escalar.',
+          'services.2.title':   'Ingeniería de datos',
+          'services.2.body':    'Tus datos están dispersos entre archivos y sistemas. Los limpiamos, los vinculamos a identificadores únicos de usuario y los estructuramos para que funcionen de verdad. Nos encargamos de la limpieza para que tu equipo obtenga respuestas en lugar de hojas de cálculo.',
+          'services.3.title':   'Nube en AWS',
+          'services.3.body':    'Ejecutamos nuestras aplicaciones en AWS. Infraestructura que se mantiene activa, escala cuando hace falta y no estorba. Nos encargamos de la configuración y de mantenerla en marcha.',
+          'services.4.title':   'Cotización personalizada',
+          'services.4.body':    'Cada proyecto es diferente. La recopilación de datos, las migraciones y los desarrollos desde cero se definen y cotizan por proyecto. Cuéntanos con qué trabajas y te diremos qué se necesita.',
+          'about.heading':      '¿Por qué Meezer?',
+          'about.p1':           'El nombre viene del apodo cariñoso para los gatos siameses. Meezer Tech encarna las cualidades que aportamos a cada proyecto: <b>inteligencia, elegancia y un toque de personalidad.</b>',
+          'about.p2':           'Creemos que la tecnología debe sentirse cercana. Detrás de cada sistema que construimos hay un compromiso con la claridad, la comunicación y una colaboración genuina con nuestros clientes.',
+          'about.p3':           'Como los felinos que nos dan el nombre, somos solucionadores curiosos que no paran hasta encontrar la solución más elegante.',
+          'contact.heading':    'Construyamos algo juntos.',
+          'contact.body':       '¿Tienes un problema que necesita una aplicación, un desorden de datos que necesita estructura o una infraestructura que simplemente debe funcionar? Ponte en contacto.',
+          'contact.cta':        'Contáctanos',
+          'footer.tagline':     'Software. Datos. Nube.',
+          'footer.services':    'Servicios',
+          'footer.about':       'Nosotros',
+          'footer.contact':     'Contacto',
+          'toggle.label':       'English',
+          'page.title':         'MeezerTech — Soluciones elegantes, diseñadas con detalle.'
+        }
+      };
+
+      var lang = localStorage.getItem('meezerLang') || 'en';
+
+      function applyLang(l) {
+        var s = LANGS[l];
+        document.documentElement.lang = l;
+        document.title = s['page.title'];
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+          var k = el.getAttribute('data-i18n');
+          if (!(k in s)) return;
+          if (k === 'about.p1') { el.innerHTML = s[k]; } else { el.textContent = s[k]; }
+        });
+        localStorage.setItem('meezerLang', l);
+        lang = l;
+      }
+
+      var btn = document.getElementById('lang-toggle');
+      if (btn) {
+        btn.addEventListener('click', function() { applyLang(lang === 'en' ? 'es' : 'en'); });
+      }
+
+      if (lang !== 'en') applyLang(lang);
     })();
   </script>
 
